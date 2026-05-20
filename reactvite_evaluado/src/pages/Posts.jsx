@@ -3,39 +3,6 @@ import { useNavigate } from 'react-router'
 import Nav from '../components/Nav'
 import ProductForm from '../components/productForm'
 
-const posts = [
-    {
-        "userId": 1,
-        "id": 1,
-        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-      },
-      {
-        "userId": 1,
-        "id": 2,
-        "title": "qui est esse",
-        "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
-      },
-      {
-        "userId": 1,
-        "id": 3,
-        "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-        "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
-      },
-      {
-        "userId": 1,
-        "id": 4,
-        "title": "eum et est occaecati",
-        "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
-      },
-      {
-        "userId": 1,
-        "id": 5,
-        "title": "nesciunt quas odio",
-        "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
-      },
-]
-
 const Posts = () => {
   // Estados que controla la lista de productos y su carga.
   const [products, setProducts] = useState([])
@@ -283,11 +250,11 @@ const Posts = () => {
         <div className="mb-6 space-y-4">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="text-3xl font-semibold text-slate-900">Productos</h1>
+              <h1 className="text-3xl font-semibold text-slate-900">Posts</h1>
             </div>
             <div className="flex items-center gap-4">
               <div className="rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-slate-200">
-                <p className="text-sm text-slate-500">Total productos</p>
+                <p className="text-sm text-slate-500">Total posts</p>
                 <p className="mt-1 text-xl font-semibold text-slate-900">{filteredProducts.length}</p>
               </div>
 
@@ -298,16 +265,16 @@ const Posts = () => {
                     setEditingProduct(null)
                     setShowProductForm((s) => !s)
                   }}
-                  className="rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500"
+                  className="rounded-2xl bg-green-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500"
                 >
-                  Nuevo producto
+                  Nuevo post
                 </button>
               </div>
             </div>
           </div>
 
           <div className="max-w-xl">
-            <label htmlFor="product-search" className="sr-only">Buscar productos</label>
+            <label htmlFor="product-search" className="sr-only">Buscar posts</label>
             <input
               id="product-search"
               type="text"
@@ -337,13 +304,9 @@ const Posts = () => {
 
 
         <div className="overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-slate-200">
-          <div className="border-b border-slate-200 px-6 py-4 bg-slate-100">
-            <h2 className="text-lg font-medium text-slate-900">Catálogo</h2>
-          </div>
-
           <div className="p-4">
             {loading ? (
-              <div className="flex items-center justify-center py-20 text-slate-500">Cargando productos...</div>
+              <div className="flex items-center justify-center py-20 text-slate-500">Cargando posts...</div>
             ) : error ? (
               <div className="rounded-2xl bg-rose-50 px-4 py-6 text-rose-700">{error}</div>
             ) : (
@@ -375,14 +338,14 @@ const Posts = () => {
                               disabled={loadingProductDetail}
                               className="rounded-full w-full bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-400"
                             >
-                              Editar producto
+                              Editar post
                             </button>
                             <button
                               type="button"
                               onClick={() => handleDeleteProduct(product.id)}
                               className="rounded-full w-full bg-red-600 px-3 py-1 text-white transition hover:bg-red-700"
                             >
-                              Eliminar producto
+                              Eliminar post
                             </button>
                           </div>
                         </td>
@@ -415,7 +378,7 @@ const Posts = () => {
                           onClick={() => handlePageChange(page)}
                           className={`rounded-2xl px-4 py-2 text-sm font-medium transition ${
                             currentPage === page
-                              ? 'bg-indigo-600 text-white shadow-sm'
+                              ? 'bg-green-600 text-white shadow-sm'
                               : 'bg-white text-slate-700 hover:bg-slate-100'
                           }`}
                         >
